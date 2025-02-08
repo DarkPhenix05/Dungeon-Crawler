@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     public float _speed;
 
-    public int hp = 10;
+    public float hp = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         //this.transform.position += new Vector3(moveDir.x,0,moveDir.z); POS METH
     }
 
-    public void TakeDamage(int _dmg)
+    public void TakeDamage(float _dmg)
     {
         hp -= _dmg;
     }
