@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Vector3 _cameraFoward;
     public Vector3 _cameraRight;
 
+    public PlayerAnimator playerAnimator;
+
     public float _speed;
 
     [Header("HP")]
@@ -45,22 +47,26 @@ public class Player : MonoBehaviour
             return;
         }
 
-        float horInput = Input.GetAxisRaw("Horizontal") * _speed;
-        float verInput = Input.GetAxisRaw("Vertical") * _speed;
+        float horInput = Input.GetAxisRaw("Horizontal");
+        float verInput = Input.GetAxisRaw("Vertical");
 
-        
+        Vector3 InputVector = new Vector3(horInput, 0, verInput).normalized;
+
         _cameraFoward = _mainCamera.transform.forward;
         _cameraRight = _mainCamera.transform.right;
 
         _cameraFoward.y = 0;
         _cameraRight.y = 0;
 
-        Vector3 rightRelative = horInput * _cameraRight;
-        Vector3 forwardRelative = verInput * _cameraFoward;
+        Vector3 rightRelative = InputVector.x * _cameraRight;
+        Vector3 forwardRelative = InputVector.z * _cameraFoward;
 
-        Vector3 moveDir = forwardRelative + rightRelative;
+        Vector3 moveDir = (forwardRelative + rightRelative) * _speed;
 
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y , moveDir.z);
+
+        //if(playeranimator != null)
+        playerAnimator?.SetAnimMovement(rb.velocity.sqrMagnitude);
 
         //this.transform.position += new Vector3(moveDir.x,0,moveDir.z); POS METH
     }
@@ -76,6 +82,7 @@ public class Player : MonoBehaviour
     private IEnumerator TurnAttackCollider(float _attackDuration)
     {
         attackCollider.gameObject.SetActive(true);
+        playerAnimator?.SetAnimAttack();
         yield return new WaitForSeconds(_attackDuration);
         attackCollider.gameObject.SetActive(false);
     }
@@ -84,5 +91,6 @@ public class Player : MonoBehaviour
     {
         hp -= _dmg;
         healthBar.SetHealth(hp);
+        playerAnimator?.SetHurtAttack();
     }
 }
