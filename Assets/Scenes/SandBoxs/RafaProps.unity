@@ -1910,7 +1910,7 @@ GameObject:
   - component: {fileID: 2024482229}
   - component: {fileID: 2024482228}
   - component: {fileID: 2024482227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2140,10 +2140,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4296181509278279872, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 744469302608515830, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 51c0bcd6f55190644b48b106c60171dc,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 51c0bcd6f55190644b48b106c60171dc,
         type: 3}
@@ -2154,6 +2169,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138676894149540834, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996837571897890116, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8606147839805218360, guid: 51c0bcd6f55190644b48b106c60171dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
