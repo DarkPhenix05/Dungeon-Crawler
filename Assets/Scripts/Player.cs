@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public Vector3 _cameraFoward;
     public Vector3 _cameraRight;
 
-    public PlayerAnimator playerAnimator;
 
     public float _speed;
 
@@ -66,7 +65,6 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector3(moveDir.x, rb.velocity.y , moveDir.z);
 
         //if(playeranimator != null)
-        playerAnimator?.SetAnimMovement(rb.velocity.sqrMagnitude);
 
         //this.transform.position += new Vector3(moveDir.x,0,moveDir.z); POS METH
     }
@@ -82,7 +80,6 @@ public class Player : MonoBehaviour
     private IEnumerator TurnAttackCollider(float _attackDuration)
     {
         attackCollider.gameObject.SetActive(true);
-        playerAnimator?.SetAnimAttack();
         yield return new WaitForSeconds(_attackDuration);
         attackCollider.gameObject.SetActive(false);
     }
@@ -91,6 +88,5 @@ public class Player : MonoBehaviour
     {
         hp -= _dmg;
         healthBar.SetHealth(hp);
-        playerAnimator?.SetHurtAttack();
     }
 }
